@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  postgres-db:
+    container_name: maxmilhas-pg-db
+    image: postgres:11
+    restart: unless-stopped
+    volumes:
+      - postgres-db-data:/data
+    environment:
+      POSTGRES_DB: maxmilhas_db
+      POSTGRES_USER: usr_admin
+      POSTGRES_PASSWORD: gpE4xYhtFAv
+    networks:
+      - app-connect
+    ports:
+      - '5431:5432'
+
+volumes:
+  postgres-db-data:
+
+
+networks:
+  app-connect:
+    driver: bridge
